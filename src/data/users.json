@@ -1,0 +1,11 @@
+{
+  "test@gmail.com": {
+    "password": "test@123",
+    "access_token": "",
+    "user_id": "Test24",
+    "expiration_time": "",
+    "message": "",
+    "phone": "87869654",
+    "address": "California"
+  }
+}

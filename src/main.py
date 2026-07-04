@@ -1,10 +1,14 @@
 import logging
 import time
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+
+load_dotenv()
 from fastapi.responses import JSONResponse
 from router.loginrouter import router as login_router
+from router.agentrouter import router as agent_router
 
 # Configure logger
 logging.basicConfig(
@@ -50,6 +54,7 @@ async def request_logger(request: Request, call_next):
 
 
 app.include_router(login_router, prefix="/api/v1")
+app.include_router(agent_router, prefix="/api/v1")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

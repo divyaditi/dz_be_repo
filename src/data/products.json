@@ -1,0 +1,50 @@
+[
+  {
+    "product_code": "GAD001",
+    "name": "Wireless Mouse",
+    "price": 499.0,
+    "quantity": 50
+  },
+  {
+    "product_code": "GAD002",
+    "name": "Mechanical Keyboard",
+    "price": 1299.0,
+    "quantity": 30
+  },
+  {
+    "product_code": "GAD003",
+    "name": "USB-C Hub",
+    "price": 799.0,
+    "quantity": 75
+  },
+  {
+    "product_code": "GAD004",
+    "name": "HD Webcam",
+    "price": 2199.0,
+    "quantity": 20
+  },
+  {
+    "product_code": "GAD005",
+    "name": "Noise Cancelling Headphones",
+    "price": 3499.0,
+    "quantity": 15
+  },
+  {
+    "product_code": "GAD006",
+    "name": "Portable SSD 1TB",
+    "price": 4999.0,
+    "quantity": 25
+  },
+  {
+    "product_code": "GAD007",
+    "name": "Smart LED Desk Lamp",
+    "price": 899.0,
+    "quantity": 40
+  },
+  {
+    "product_code": "GAD008",
+    "name": "Bluetooth Speaker",
+    "price": 1799.0,
+    "quantity": 35
+  }
+]

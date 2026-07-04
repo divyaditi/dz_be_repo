@@ -15,6 +15,8 @@ class LoginData(BaseModel):
     user_id: Optional[str] = None
     expiration_time: str
     message: str = ""
+    address: Optional[str] = None
+    phone: Optional[str] = None
 
 
 class LoginResponse(BaseModel):
