@@ -12,7 +12,7 @@ def get_products(
     query: Optional[str] = None,
     product_id: Optional[str] = None,
     offset: int = 0,
-) -> str:
+) -> dict:
     """
     Handles all product retrieval in three flows:
 
@@ -40,42 +40,34 @@ def get_products(
         offset:           Pagination offset (0, 10, 20 ...).
 
     Returns:
-        Flow 1: Category list.
-        Flow 2: Paginated product list with product_id column.
-        Flow 3: Full product detail.
+        Flow 1: {"categories": [...]}
+        Flow 2: {"products": [...], "total": int, "offset": int, "has_more": bool}
+        Flow 3: {"product": {...}}
+        Error:  {"error": "..."}
     """
 
-    # ── FLOW 1: Return available categories ──────────────────────────────────
+    # ── FLOW 1: Categories ────────────────────────────────────────────────────
     if fetch_categories:
         categories = product_db.get_categories()
-        if not categories:
-            return "No categories available."
-        lines = ["Available Categories:\n"]
-        for i, cat in enumerate(categories, 1):
-            lines.append(f"  {i}. {cat}")
-        lines.append("\nPlease select a category and share your maximum budget (₹) to see products.")
-        return "\n".join(lines)
+        return {"categories": categories}
 
-    # ── FLOW 3: Full detail for a selected product ────────────────────────────
+    # ── FLOW 3: Single product detail ─────────────────────────────────────────
     if product_id:
         product = product_db.get_product(product_id)
         if not product:
-            return (
-                f"No product found with code '{product_id}'. "
-                "Please select a valid product code from the list."
-            )
-        lines = ["Product Details:\n"]
-        lines.append(f"{'Field':<16} Value")
-        lines.append("-" * 44)
-        lines.append(f"{'Code':<16} {product.product_code}")
-        lines.append(f"{'Name':<16} {product.name}")
-        lines.append(f"{'Category':<16} {product.category}")
-        lines.append(f"{'Price (₹)':<16} {product.price:.2f}")
-        lines.append(f"{'In Stock':<16} {product.quantity} units")
-        lines.append(f"{'Added On':<16} {product.created_at}")
-        return "\n".join(lines)
+            return {"error": f"product_id '{product_id}' not found"}
+        return {
+            "product": {
+                "product_id": product.product_code,
+                "name": product.name,
+                "category": product.category,
+                "price": product.price,
+                "quantity": product.quantity,
+                "created_at": product.created_at,
+            }
+        }
 
-    # ── FLOW 2 / SPECIAL: Search or list products ─────────────────────────────
+    # ── FLOW 2: Search / list ─────────────────────────────────────────────────
     products, total = product_db.search_products(
         query=query,
         category=category,
@@ -85,27 +77,21 @@ def get_products(
     )
 
     if not products:
-        return "No products found matching your filters. Try a different category or budget."
+        return {"products": [], "total": 0, "offset": offset, "has_more": False}
 
-    shown_from = offset + 1
-    shown_to = offset + len(products)
-
-    lines = [f"Products (showing {shown_from}–{shown_to} of {total}, latest first):\n"]
-    lines.append(f"{'product_id':<10} {'Product Name':<36} {'Category':<24} {'Price (₹)':>10} {'Qty':>6}")
-    lines.append("-" * 90)
-    for p in products:
-        lines.append(
-            f"{p.product_code:<10} {p.name:<36} {p.category:<24} {p.price:>10.2f} {p.quantity:>6}"
-        )
-
-    if shown_to < total:
-        lines.append(
-            f"\n{total - shown_to} more product(s) available. "
-            f"Call get_products with offset={offset + PRODUCT_PAGE_SIZE} to see the next page."
-        )
-
-    lines.append(
-        "\nAsk the user which product they want, then call get_products(product_id=<code>) for full details."
-    )
-
-    return "\n".join(lines)
+    return {
+        "products": [
+            {
+                "product_id": p.product_code,
+                "name": p.name,
+                "category": p.category,
+                "price": p.price,
+                "quantity": p.quantity,
+            }
+            for p in products
+        ],
+        "total": total,
+        "offset": offset,
+        "has_more": (offset + len(products)) < total,
+        "next_offset": offset + PRODUCT_PAGE_SIZE,
+    }

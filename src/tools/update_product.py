@@ -3,28 +3,31 @@ from repositories.productdb import product_db
 
 
 @tool
-def update_product(product_code: str, quantity: int) -> str:
+def update_product(product_code: str, quantity: int) -> dict:
     """
-    Subtracts the purchased quantity from the available stock in products.json.
-    Call this when a user selects a product to buy.
+    Subtracts the purchased quantity from the available stock.
+    Call this when a user confirms a product purchase.
 
     Args:
-        product_code: The product code of the item (e.g. GAD001).
-        quantity: The number of units to subtract from the current stock.
+        product_code: The product code of the item (e.g. ELC006).
+        quantity:     The number of units purchased.
 
     Returns:
-        A confirmation message with the updated stock level, or an error message.
+        {"product_code": ..., "name": ..., "sold": ..., "remaining_stock": ...}
+        or {"error": "..."}
     """
     if quantity <= 0:
-        return "Error: quantity must be a positive number."
+        return {"error": "quantity must be a positive number"}
 
     try:
         updated = product_db.subtract_quantity(product_code, quantity)
-        return (
-            f"Stock updated for [{updated.product_code}] {updated.name}. "
-            f"Sold: {quantity}. Remaining stock: {updated.quantity}."
-        )
+        return {
+            "product_code": updated.product_code,
+            "name": updated.name,
+            "sold": quantity,
+            "remaining_stock": updated.quantity,
+        }
     except ValueError as ex:
-        return f"Error: {str(ex)}"
+        return {"error": str(ex)}
     except Exception as ex:
-        return f"Error: Failed to update product — {str(ex)}"
+        return {"error": str(ex)}
