@@ -19,4 +19,5 @@ class Order(BaseModel):
     price: float
     total: float
     status: str
+    payment_status: str = "Unpaid"
     order_date: str
