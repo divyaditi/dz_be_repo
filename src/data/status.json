@@ -1,0 +1,8 @@
+[
+  { "status_id": "STS001", "status_name": "Processing",       "is_active": true },
+  { "status_id": "STS002", "status_name": "Shipped",          "is_active": true },
+  { "status_id": "STS003", "status_name": "Delivered",        "is_active": true },
+  { "status_id": "STS004", "status_name": "Cancelled",        "is_active": true },
+  { "status_id": "STS005", "status_name": "Payment Paid",     "is_active": true },
+  { "status_id": "STS006", "status_name": "Payment Unpaid",   "is_active": true }
+]

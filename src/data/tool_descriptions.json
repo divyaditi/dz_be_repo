@@ -1,0 +1,79 @@
+{
+  "tools": [
+    {
+      "tool_id": "TL001",
+      "tool_name": "search_product",
+      "tool_description": "Searches and browses the product catalog. Use this to find, show, list, or display products available for purchase. If a product name is provided, it searches for that specific product. If no product name is provided, it returns all available products. Use this when the user wants to see products, find items to buy, browse the catalog, or look up product details like price and availability.",
+      "parameters": ["product_name"],
+      "parameter_descriptions": {
+        "product_name": "(Optional) Name of the product to search for. If omitted, all products will be returned."
+      },
+      "sample_query": "Can you show me what wireless mice you have available?",
+      "source": "internal_api",
+      "is_active": true
+    },
+    {
+      "tool_id": "TL002",
+      "tool_name": "create_order",
+      "tool_description": "Creates a customer order for a specific product.",
+      "parameters": ["user_id", "product_id", "quantity"],
+      "parameter_descriptions": {
+        "user_id": "Customer ID",
+        "product_id": "Product ID",
+        "quantity": "Number of items"
+      },
+      "sample_query": "I want to buy two of the Gaming Keyboards (ID: PROD-99).",
+      "source": "internal_api",
+      "is_active": true
+    },
+    {
+      "tool_id": "TL003",
+      "tool_name": "show_orders",
+      "tool_description": "Retrieves customer orders. Can fetch all orders, or specific orders filtered by product name and/or a date range. Supports fetching the last ordered item if specified.",
+      "parameters": ["product_name", "start_date", "end_date", "last_ordered"],
+      "parameter_descriptions": {
+        "product_name": "(Optional) Name of the product associated with the order.",
+        "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+        "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+        "last_ordered": "(Optional) Boolean flag. If true, fetches the most recently ordered item matching other criteria. Defaults to false."
+      },
+      "sample_query": "Show me the orders I placed for a Laptop between January and March 2023.",
+      "source": "internal_api",
+      "is_active": true
+    },
+    {
+      "tool_id": "TL004",
+      "tool_name": "cancel_order",
+      "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+      "parameters": ["order_id", "product_name", "start_date", "end_date", "last_ordered", "hitl_required"],
+      "parameter_descriptions": {
+        "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+        "product_name": "(Optional) Name of the product in the order to be cancelled.",
+        "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+        "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+        "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+        "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+      },
+      "sample_query": "I need to cancel the Wireless Mouse I just ordered.",
+      "source": "internal_api",
+      "is_active": true
+    },
+    {
+      "tool_id": "TL005",
+      "tool_name": "refund_order",
+      "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+      "parameters": ["order_id", "product_name", "start_date", "end_date", "last_ordered", "hitl_required"],
+      "parameter_descriptions": {
+        "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+        "product_name": "(Optional) Name of the product in the order to be refunded.",
+        "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+        "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+        "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+        "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+      },
+      "sample_query": "Can I get a refund for the Gaming Keyboard I bought last week?",
+      "source": "internal_api",
+      "is_active": true
+    }
+  ]
+}

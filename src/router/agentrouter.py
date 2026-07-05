@@ -1,18 +1,10 @@
 from fastapi import APIRouter, Depends
-from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 from agent.ecommerce_agent import ecommerce_agent
 from router.dependencies import verify_token
+from models.agent_model import AgentRequest, AgentResponse
 
 router = APIRouter()
-
-
-class AgentRequest(BaseModel):
-    message: str
-
-
-class AgentResponse(BaseModel):
-    response: str
 
 
 @router.post("/agent/chat")

@@ -4,67 +4,36 @@ from repositories.productdb import product_db
 
 
 @tool
-def show_orders(user_id: str, order_id: Optional[str] = None) -> dict:
+def show_orders(
+    user_id: str,
+    product_name: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
+    last_ordered: bool = False,
+) -> dict:
     """
-    Handles order retrieval in two modes:
-
-    MODE 1 — List all orders (order_id NOT provided):
-        Returns all orders for the given user_id.
-        After showing the list, ask the user which order they want details for,
-        then call Mode 2 with that order_id.
-
-    MODE 2 — Particular order detail (order_id IS provided):
-        Returns full detail of a specific order.
-        Only call after user picks an order_id from the Mode 1 list.
+    Retrieves customer orders. Can fetch all orders or filter by product name
+    and/or date range. Supports fetching the last ordered item if specified.
 
     Args:
-        user_id:  The unique ID of the user (required for both modes).
-        order_id: The order ID for full detail (e.g. "ORD001"). Triggers Mode 2.
+        user_id:      The unique ID of the user (required).
+        product_name: (Optional) Filter orders by product name.
+        start_date:   (Optional) Start date filter (YYYY-MM-DD).
+        end_date:     (Optional) End date filter (YYYY-MM-DD).
+        last_ordered: (Optional) If true, returns only the most recently ordered item.
 
     Returns:
-        Mode 1: {"orders": [...]}
-        Mode 2: {"order": {...}}
-        Error:  {"error": "..."}
+        {"tool": "show_orders", "data": {"orders": [...]}}
     """
     if not user_id:
-        return {"error": "user_id is required"}
+        return {"tool": "show_orders", "data": {"message": "user_id is required"}}
 
-    # ── MODE 2: Single order detail ───────────────────────────────────────────
-    if order_id:
-        order = product_db.get_order_by_id(order_id)
-        if not order:
-            return {"error": f"order_id '{order_id}' not found"}
-        return {
-            "order": {
-                "order_id": order.order_id,
-                "product_name": order.product_name,
-                "product_code": order.product_code,
-                "quantity": order.quantity,
-                "price": order.price,
-                "total": order.total,
-                "status": order.status,
-                "payment_status": order.payment_status,
-                "order_date": order.order_date,
-            }
-        }
+    orders = product_db.get_orders_by_user_id(
+        user_id=user_id,
+        product_name=product_name,
+        start_date=start_date,
+        end_date=end_date,
+        last_ordered=last_ordered,
+    )
 
-    # ── MODE 1: All orders ────────────────────────────────────────────────────
-    orders = product_db.get_orders_by_user_id(user_id)
-
-    if not orders:
-        return {"orders": []}
-
-    return {
-        "orders": [
-            {
-                "order_id": o.order_id,
-                "product_name": o.product_name,
-                "quantity": o.quantity,
-                "total": o.total,
-                "status": o.status,
-                "payment_status": o.payment_status,
-                "order_date": o.order_date,
-            }
-            for o in orders
-        ]
-    }
+    return {"tool": "show_orders", "data": {"orders": orders}}

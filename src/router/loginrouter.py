@@ -10,11 +10,4 @@ def login_api(request: LoginRequest) -> LoginResponse:
     try:
         return login_service.login(request.email, request.password)
     except Exception as ex:
-        return LoginResponse(
-            status_code=500,
-            data={
-                "access_token": "",
-                "expiration_time": "",
-                "message": str(ex),
-            },
-        )
+        return LoginResponse(status_code=500, message=str(ex))

@@ -1,0 +1,51 @@
+[
+  {
+    "order_item_id": "OI001",
+    "order_id": "ORD001",
+    "product_id": "ELC005",
+    "quantity": 1,
+    "price": 29990.0
+  },
+  {
+    "order_item_id": "OI002",
+    "order_id": "ORD002",
+    "product_id": "ELC015",
+    "quantity": 1,
+    "price": 8995.0
+  },
+  {
+    "order_item_id": "OI003",
+    "order_id": "ORD003",
+    "product_id": "ELC006",
+    "quantity": 1,
+    "price": 9999.0
+  },
+  {
+    "order_item_id": "OI004",
+    "order_id": "ORD004",
+    "product_id": "ELC006",
+    "quantity": 1,
+    "price": 9999.0
+  },
+  {
+    "order_item_id": "OI005",
+    "order_id": "ORD005",
+    "product_id": "ELC006",
+    "quantity": 1,
+    "price": 9999.0
+  },
+  {
+    "order_item_id": "OI006",
+    "order_id": "ORD006",
+    "product_id": "ELC006",
+    "quantity": 1,
+    "price": 9999.0
+  },
+  {
+    "order_item_id": "OI007",
+    "order_id": "ORD007",
+    "product_id": "ELC006",
+    "quantity": 1,
+    "price": 9999.0
+  }
+]

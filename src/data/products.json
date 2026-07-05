@@ -1,162 +1,202 @@
 [
   {
-    "product_code": "ELC001",
-    "name": "Samsung Galaxy S24 Ultra",
+    "product_id": "ELC001",
+    "product_name": "Samsung Galaxy S24 Ultra",
     "price": 124999.0,
-    "quantity": 20,
+    "stock_quantity": 20,
     "category": "Smartphones & Tablets",
-    "created_at": "2026-06-01"
+    "created_at": "2026-06-01",
+    "updated_at": "2026-06-01",
+    "is_active": true
   },
   {
-    "product_code": "ELC002",
-    "name": "Apple iPhone 15 Pro",
+    "product_id": "ELC002",
+    "product_name": "Apple iPhone 15 Pro",
     "price": 134900.0,
-    "quantity": 15,
+    "stock_quantity": 15,
     "category": "Smartphones & Tablets",
-    "created_at": "2026-06-03"
+    "created_at": "2026-06-03",
+    "updated_at": "2026-06-03",
+    "is_active": true
   },
   {
-    "product_code": "ELC003",
-    "name": "Apple MacBook Air M3",
+    "product_id": "ELC003",
+    "product_name": "Apple MacBook Air M3",
     "price": 114900.0,
-    "quantity": 10,
+    "stock_quantity": 10,
     "category": "Computers & Laptops",
-    "created_at": "2026-05-20"
+    "created_at": "2026-05-20",
+    "updated_at": "2026-05-20",
+    "is_active": true
   },
   {
-    "product_code": "ELC004",
-    "name": "Dell XPS 15 Laptop",
+    "product_id": "ELC004",
+    "product_name": "Dell XPS 15 Laptop",
     "price": 145000.0,
-    "quantity": 8,
+    "stock_quantity": 8,
     "category": "Computers & Laptops",
-    "created_at": "2026-05-25"
+    "created_at": "2026-05-25",
+    "updated_at": "2026-05-25",
+    "is_active": true
   },
   {
-    "product_code": "ELC005",
-    "name": "Sony WH-1000XM5 Headphones",
+    "product_id": "ELC005",
+    "product_name": "Sony WH-1000XM5 Headphones",
     "price": 29990.0,
-    "quantity": 30,
+    "stock_quantity": 30,
     "category": "Audio",
-    "created_at": "2026-04-10"
+    "created_at": "2026-04-10",
+    "updated_at": "2026-04-10",
+    "is_active": true
   },
   {
-    "product_code": "ELC006",
-    "name": "JBL Flip 6 Bluetooth Speaker",
+    "product_id": "ELC006",
+    "product_name": "JBL Flip 6 Bluetooth Speaker",
     "price": 9999.0,
-    "quantity": 50,
+    "stock_quantity": 45,
     "category": "Audio",
-    "created_at": "2026-04-18"
+    "created_at": "2026-04-18",
+    "updated_at": "2026-04-18",
+    "is_active": true
   },
   {
-    "product_code": "ELC007",
-    "name": "Sony ZV-E10 Mirrorless Camera",
+    "product_id": "ELC007",
+    "product_name": "Sony ZV-E10 Mirrorless Camera",
     "price": 59990.0,
-    "quantity": 12,
+    "stock_quantity": 12,
     "category": "Cameras & Photography",
-    "created_at": "2026-03-15"
+    "created_at": "2026-03-15",
+    "updated_at": "2026-03-15",
+    "is_active": true
   },
   {
-    "product_code": "ELC008",
-    "name": "GoPro Hero 12 Black",
+    "product_id": "ELC008",
+    "product_name": "GoPro Hero 12 Black",
     "price": 39990.0,
-    "quantity": 18,
+    "stock_quantity": 18,
     "category": "Cameras & Photography",
-    "created_at": "2026-03-22"
+    "created_at": "2026-03-22",
+    "updated_at": "2026-03-22",
+    "is_active": true
   },
   {
-    "product_code": "ELC009",
-    "name": "Apple Watch Series 9",
+    "product_id": "ELC009",
+    "product_name": "Apple Watch Series 9",
     "price": 41900.0,
-    "quantity": 25,
+    "stock_quantity": 25,
     "category": "Wearables",
-    "created_at": "2026-05-05"
+    "created_at": "2026-05-05",
+    "updated_at": "2026-05-05",
+    "is_active": true
   },
   {
-    "product_code": "ELC010",
-    "name": "Samsung Galaxy Watch 6",
+    "product_id": "ELC010",
+    "product_name": "Samsung Galaxy Watch 6",
     "price": 28999.0,
-    "quantity": 22,
+    "stock_quantity": 22,
     "category": "Wearables",
-    "created_at": "2026-05-12"
+    "created_at": "2026-05-12",
+    "updated_at": "2026-05-12",
+    "is_active": true
   },
   {
-    "product_code": "ELC011",
-    "name": "LG OLED C3 55 inch TV",
+    "product_id": "ELC011",
+    "product_name": "LG OLED C3 55 inch TV",
     "price": 139999.0,
-    "quantity": 5,
+    "stock_quantity": 5,
     "category": "TV & Home Theatre",
-    "created_at": "2026-02-10"
+    "created_at": "2026-02-10",
+    "updated_at": "2026-02-10",
+    "is_active": true
   },
   {
-    "product_code": "ELC012",
-    "name": "Sony Bravia XR 65 inch TV",
+    "product_id": "ELC012",
+    "product_name": "Sony Bravia XR 65 inch TV",
     "price": 189990.0,
-    "quantity": 4,
+    "stock_quantity": 4,
     "category": "TV & Home Theatre",
-    "created_at": "2026-02-20"
+    "created_at": "2026-02-20",
+    "updated_at": "2026-02-20",
+    "is_active": true
   },
   {
-    "product_code": "ELC013",
-    "name": "PlayStation 5 Console",
+    "product_id": "ELC013",
+    "product_name": "PlayStation 5 Console",
     "price": 54990.0,
-    "quantity": 10,
+    "stock_quantity": 10,
     "category": "Gaming",
-    "created_at": "2026-01-15"
+    "created_at": "2026-01-15",
+    "updated_at": "2026-01-15",
+    "is_active": true
   },
   {
-    "product_code": "ELC014",
-    "name": "Xbox Series X",
+    "product_id": "ELC014",
+    "product_name": "Xbox Series X",
     "price": 52990.0,
-    "quantity": 8,
+    "stock_quantity": 8,
     "category": "Gaming",
-    "created_at": "2026-01-20"
+    "created_at": "2026-01-20",
+    "updated_at": "2026-01-20",
+    "is_active": true
   },
   {
-    "product_code": "ELC015",
-    "name": "Logitech MX Master 3 Mouse",
+    "product_id": "ELC015",
+    "product_name": "Logitech MX Master 3 Mouse",
     "price": 8995.0,
-    "quantity": 60,
+    "stock_quantity": 60,
     "category": "Accessories",
-    "created_at": "2026-06-10"
+    "created_at": "2026-06-10",
+    "updated_at": "2026-06-10",
+    "is_active": true
   },
   {
-    "product_code": "ELC016",
-    "name": "Keychron K2 Mechanical Keyboard",
+    "product_id": "ELC016",
+    "product_name": "Keychron K2 Mechanical Keyboard",
     "price": 7499.0,
-    "quantity": 45,
+    "stock_quantity": 45,
     "category": "Accessories",
-    "created_at": "2026-06-12"
+    "created_at": "2026-06-12",
+    "updated_at": "2026-06-12",
+    "is_active": true
   },
   {
-    "product_code": "ELC017",
-    "name": "Samsung T7 Portable SSD 1TB",
+    "product_id": "ELC017",
+    "product_name": "Samsung T7 Portable SSD 1TB",
     "price": 8499.0,
-    "quantity": 35,
+    "stock_quantity": 35,
     "category": "Storage",
-    "created_at": "2026-03-05"
+    "created_at": "2026-03-05",
+    "updated_at": "2026-03-05",
+    "is_active": true
   },
   {
-    "product_code": "ELC018",
-    "name": "SanDisk Extreme Pro 2TB SSD",
+    "product_id": "ELC018",
+    "product_name": "SanDisk Extreme Pro 2TB SSD",
     "price": 15999.0,
-    "quantity": 20,
+    "stock_quantity": 20,
     "category": "Storage",
-    "created_at": "2026-03-10"
+    "created_at": "2026-03-10",
+    "updated_at": "2026-03-10",
+    "is_active": true
   },
   {
-    "product_code": "ELC019",
-    "name": "TP-Link Archer AX73 WiFi Router",
+    "product_id": "ELC019",
+    "product_name": "TP-Link Archer AX73 WiFi Router",
     "price": 12999.0,
-    "quantity": 15,
+    "stock_quantity": 15,
     "category": "Networking",
-    "created_at": "2026-04-25"
+    "created_at": "2026-04-25",
+    "updated_at": "2026-04-25",
+    "is_active": true
   },
   {
-    "product_code": "ELC020",
-    "name": "Anker USB-C 12-in-1 Hub",
+    "product_id": "ELC020",
+    "product_name": "Anker USB-C 12-in-1 Hub",
     "price": 5499.0,
-    "quantity": 40,
+    "stock_quantity": 40,
     "category": "Accessories",
-    "created_at": "2026-06-15"
+    "created_at": "2026-06-15",
+    "updated_at": "2026-06-15",
+    "is_active": true
   }
 ]

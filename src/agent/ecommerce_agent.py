@@ -1,57 +1,54 @@
 import logging
 from langchain_groq import ChatGroq
 from langgraph.prebuilt import create_react_agent
-from langchain_core.messages import SystemMessage
 from settings import settings
-from tools.get_products import get_products
-from tools.update_product import update_product
-from tools.update_user_profile import update_user_profile
+from tools.search_product import search_product
+from tools.create_order import create_order
 from tools.show_orders import show_orders
 from tools.cancel_order import cancel_order
+from tools.refund_order import refund_order
+from tools.update_user_profile import update_user_profile
+from tools.search_tool import search_tool
 
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = """
-You are a helpful electronics e-commerce assistant. You help users browse and buy electronics products.
+You are a helpful electronics e-commerce assistant.
 
-You have access to the get_products tool which handles all product flows:
+When unsure which tool to use, call search_tool(query=<user message>) first to find the best matching tool.
 
-FLOW 1 — User asks what categories are available:
-  → Call get_products(fetch_categories=True)
-  → Show the categories to the user
-  → Ask: "Which category are you interested in?"
-  → Ask: "What is your maximum budget in ₹?" (skip if user does not mention a budget)
-  → Then call Flow 2
+PRODUCT FLOW:
+  - User asks to see products / search by name → call search_product(product_name=...)
+  - No product name given → call search_product() to return all products
 
-FLOW 2 — User wants to browse products (knows category):
-  → Always ask category and max price BEFORE fetching (unless already given)
-  → Call get_products(category=..., max_price=...)
-  → Show the product list (latest first, 10 per page)
-  → Ask: "Which product would you like to know more about?"
-  → Then call Flow 3 with the product_id from the list
+ORDER FLOW:
+  - User wants to see orders → call show_orders(user_id=...) optionally with product_name, start_date, end_date, last_ordered
+  - User wants to create/buy a product → call create_order(user_id=..., product_id=..., quantity=...)
 
-FLOW 3 — User picks a specific product:
-  → Call get_products(product_id=<code from the list>)
-  → Show full product details
-  → Never guess or invent a product_id
+CANCEL ORDER FLOW:
+  FLOW A — No product specified ("cancel my order"):
+    Step 1: call show_orders(user_id=...) → show orders to user
+    Step 2: User picks → call cancel_order(user_id=..., order_id=<picked>)
+    Step 3: Check payment_status → "Payment Paid": tell user refund of ₹<total_amount> in 3-7 business days
+                                 → "Payment Unpaid": tell user order cancelled, no refund
 
-SPECIAL CASE — User directly names a product (e.g. "show me Sony headphones", "tell me about MacBook", "I want a gaming console"):
-  → Do NOT ask for category or price
-  → Call get_products(query=<product name from user message>) to fetch similar/relevant products
-  → Show the matching list to the user and ask: "Which one would you like to know more about?"
-  → After user picks → call get_products(product_id=<code>) for full details
-  → Never jump straight to product_id without showing the list first
+  FLOW B — Product named ("cancel my Sony headphones order"):
+    Step 1: call cancel_order(user_id=..., product_name="Sony headphones")
+    Step 2: If hitl_required=true → show matching orders, ask user to confirm
+    Step 3: call cancel_order(user_id=..., order_id=<confirmed id>)
+    Step 4: Same payment_status check
 
-OTHER CAPABILITIES:
-  - Update user profile (address, phone) using update_user_profile
-  - View orders: call show_orders(user_id=...) to list all orders,
-    then show_orders(user_id=..., order_id=...) for a specific order detail
-  - Cancel an order using cancel_order(order_id=...)
+REFUND FLOW:
+  - call refund_order(user_id=...) with optional order_id, product_name, start_date, end_date, last_ordered
+  - If hitl_required=true → show matching orders, ask user to confirm which to refund
+  - Only "Payment Paid" orders are eligible for refund
 
-Always be polite and concise. Format all product results clearly.
+PROFILE:
+  - Update address/phone → call update_user_profile(user_id=..., address=..., phone_no=...)
+
+Always be polite and concise.
 """
 
-# Initialise Groq model via LangChain
 model = ChatGroq(
     api_key=settings.GROQ_API_KEY,
     model=settings.GROQ_MODEL_ID.replace("groq/", ""),
@@ -59,9 +56,8 @@ model = ChatGroq(
     temperature=0.7,
 )
 
-tools = [get_products, update_product, update_user_profile, show_orders, cancel_order]
+tools = [search_tool, search_product, create_order, show_orders, cancel_order, refund_order, update_user_profile]
 
-# Create ReAct agent with LangGraph
 ecommerce_agent = create_react_agent(
     model=model,
     tools=tools,

@@ -1,26 +1,79 @@
 [
   {
     "order_id": "ORD001",
-    "user_id": "Test24",
-    "product_code": "ELC005",
-    "product_name": "Sony WH-1000XM5 Headphones",
-    "quantity": 1,
-    "price": 29990.0,
-    "total": 29990.0,
-    "status": "Delivered",
-    "payment_status": "Unpaid",
-    "order_date": "01-06-2026"
+    "user_id": "USR001",
+    "status_id": "STS003",
+    "payment_status_id": "STS006",
+    "shipping_address": "California, 90001",
+    "total_amount": 29990.0,
+    "created_at": "2026-06-01",
+    "updated_at": "2026-06-01",
+    "is_active": true
   },
   {
     "order_id": "ORD002",
-    "user_id": "Test24",
-    "product_code": "ELC015",
-    "product_name": "Logitech MX Master 3 Mouse",
-    "quantity": 1,
-    "price": 8995.0,
-    "total": 8995.0,
-    "status": "Processing",
-    "payment_status": "Paid",
-    "order_date": "04-07-2026"
+    "user_id": "USR001",
+    "status_id": "STS004",
+    "payment_status_id": "STS005",
+    "shipping_address": "California, 90001",
+    "total_amount": 8995.0,
+    "created_at": "2026-07-04",
+    "updated_at": "2026-07-04",
+    "is_active": true
+  },
+  {
+    "order_id": "ORD003",
+    "user_id": "USR001",
+    "status_id": "STS001",
+    "payment_status_id": "STS006",
+    "shipping_address": "",
+    "total_amount": 9999.0,
+    "created_at": "2026-07-05",
+    "updated_at": "2026-07-05",
+    "is_active": true
+  },
+  {
+    "order_id": "ORD004",
+    "user_id": "USR001",
+    "status_id": "STS001",
+    "payment_status_id": "STS006",
+    "shipping_address": "",
+    "total_amount": 9999.0,
+    "created_at": "2026-07-05",
+    "updated_at": "2026-07-05",
+    "is_active": true
+  },
+  {
+    "order_id": "ORD005",
+    "user_id": "USR001",
+    "status_id": "STS001",
+    "payment_status_id": "STS006",
+    "shipping_address": "",
+    "total_amount": 9999.0,
+    "created_at": "2026-07-05",
+    "updated_at": "2026-07-05",
+    "is_active": true
+  },
+  {
+    "order_id": "ORD006",
+    "user_id": "USR001",
+    "status_id": "STS001",
+    "payment_status_id": "STS006",
+    "shipping_address": "",
+    "total_amount": 9999.0,
+    "created_at": "2026-07-05",
+    "updated_at": "2026-07-05",
+    "is_active": true
+  },
+  {
+    "order_id": "ORD007",
+    "user_id": "USR001",
+    "status_id": "STS001",
+    "payment_status_id": "STS006",
+    "shipping_address": "",
+    "total_amount": 9999.0,
+    "created_at": "2026-07-05",
+    "updated_at": "2026-07-05",
+    "is_active": true
   }
 ]

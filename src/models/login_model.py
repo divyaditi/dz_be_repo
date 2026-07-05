@@ -7,18 +7,31 @@ class LoginRequest(BaseModel):
     password: str
 
 
-class LoginData(BaseModel):
-    model_config = {"populate_by_name": True}
-
+class User(BaseModel):
+    user_id: str
+    user_email: str
     password: str = Field(default="", exclude=True)
-    access_token: str
-    user_id: Optional[str] = None
-    expiration_time: str
-    message: str = ""
+    jwt_token: str = ""
+    expiration_time: str = ""
+    created_at: str = ""
+    updated_at: str = ""
+    is_active: bool = True
+
+
+class UserDetail(BaseModel):
+    user_detail_id: str
+    user_id: str
     address: Optional[str] = None
-    phone: Optional[str] = None
+    phone_no: Optional[str] = None
+    pincode: Optional[str] = None
+    created_at: str = ""
+    updated_at: str = ""
+    is_active: bool = True
 
 
 class LoginResponse(BaseModel):
     status_code: int
-    data: LoginData
+    user_id: Optional[str] = None
+    jwt_token: str = ""
+    expiration_time: str = ""
+    message: str = ""

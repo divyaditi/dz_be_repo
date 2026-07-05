@@ -23,7 +23,7 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(bearer_sche
             settings.SECRET_KEY,
             algorithms=[settings.ALGORITHM],
         )
-        return payload.get("user_email")
+        return payload.get("user_id")
 
     except jwt.ExpiredSignatureError:
         raise HTTPException(

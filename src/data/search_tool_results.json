@@ -1,0 +1,365 @@
+[
+  {
+    "query": "I want to cancel my order",
+    "result": {
+      "tool": "search_tool",
+      "data": {
+        "query": "I want to cancel my order",
+        "matches": [
+          {
+            "tool_id": "TL004",
+            "tool_name": "cancel_order",
+            "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be cancelled.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.4326
+          },
+          {
+            "tool_id": "TL005",
+            "tool_name": "refund_order",
+            "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be refunded.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.2953
+          },
+          {
+            "tool_id": "TL003",
+            "tool_name": "show_orders",
+            "tool_description": "Retrieves customer orders. Can fetch all orders, or specific orders filtered by product name and/or a date range. Supports fetching the last ordered item if specified.",
+            "parameters": [
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered"
+            ],
+            "parameter_descriptions": {
+              "product_name": "(Optional) Name of the product associated with the order.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, fetches the most recently ordered item matching other criteria. Defaults to false."
+            },
+            "relevance_score": 0.0774
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "show me wireless mice",
+    "result": {
+      "tool": "search_tool",
+      "data": {
+        "query": "show me wireless mice",
+        "matches": [
+          {
+            "tool_id": "TL003",
+            "tool_name": "show_orders",
+            "tool_description": "Retrieves customer orders. Can fetch all orders, or specific orders filtered by product name and/or a date range. Supports fetching the last ordered item if specified.",
+            "parameters": [
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered"
+            ],
+            "parameter_descriptions": {
+              "product_name": "(Optional) Name of the product associated with the order.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, fetches the most recently ordered item matching other criteria. Defaults to false."
+            },
+            "relevance_score": -0.1754
+          },
+          {
+            "tool_id": "TL005",
+            "tool_name": "refund_order",
+            "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be refunded.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": -0.2496
+          },
+          {
+            "tool_id": "TL004",
+            "tool_name": "cancel_order",
+            "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be cancelled.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": -0.2557
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "I need a refund for my keyboard",
+    "result": {
+      "tool": "search_tool",
+      "data": {
+        "query": "I need a refund for my keyboard",
+        "matches": [
+          {
+            "tool_id": "TL005",
+            "tool_name": "refund_order",
+            "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be refunded.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.197
+          },
+          {
+            "tool_id": "TL004",
+            "tool_name": "cancel_order",
+            "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be cancelled.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.0103
+          },
+          {
+            "tool_id": "TL003",
+            "tool_name": "show_orders",
+            "tool_description": "Retrieves customer orders. Can fetch all orders, or specific orders filtered by product name and/or a date range. Supports fetching the last ordered item if specified.",
+            "parameters": [
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered"
+            ],
+            "parameter_descriptions": {
+              "product_name": "(Optional) Name of the product associated with the order.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, fetches the most recently ordered item matching other criteria. Defaults to false."
+            },
+            "relevance_score": -0.1163
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "place an order for headphones",
+    "result": {
+      "tool": "search_tool",
+      "data": {
+        "query": "place an order for headphones",
+        "matches": [
+          {
+            "tool_id": "TL002",
+            "tool_name": "create_order",
+            "tool_description": "Creates a customer order for a specific product.",
+            "parameters": [
+              "user_id",
+              "product_id",
+              "quantity"
+            ],
+            "parameter_descriptions": {
+              "user_id": "Customer ID",
+              "product_id": "Product ID",
+              "quantity": "Number of items"
+            },
+            "relevance_score": 0.1478
+          },
+          {
+            "tool_id": "TL005",
+            "tool_name": "refund_order",
+            "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be refunded.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.1322
+          },
+          {
+            "tool_id": "TL004",
+            "tool_name": "cancel_order",
+            "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be cancelled.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.0926
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "show me my recent orders",
+    "result": {
+      "tool": "search_tool",
+      "data": {
+        "query": "show me my recent orders",
+        "matches": [
+          {
+            "tool_id": "TL003",
+            "tool_name": "show_orders",
+            "tool_description": "Retrieves customer orders. Can fetch all orders, or specific orders filtered by product name and/or a date range. Supports fetching the last ordered item if specified.",
+            "parameters": [
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered"
+            ],
+            "parameter_descriptions": {
+              "product_name": "(Optional) Name of the product associated with the order.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, fetches the most recently ordered item matching other criteria. Defaults to false."
+            },
+            "relevance_score": 0.3571
+          },
+          {
+            "tool_id": "TL005",
+            "tool_name": "refund_order",
+            "tool_description": "Initiates a refund for a specific order. Can search for refundable orders by product name, last ordered status, and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to refund. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be refunded.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.2751
+          },
+          {
+            "tool_id": "TL004",
+            "tool_name": "cancel_order",
+            "tool_description": "Cancels a specific order. Can search for orders to cancel by product name and/or a date range. If a specific order cannot be confidently identified, a Human-In-The-Loop (HITL) intervention is triggered.",
+            "parameters": [
+              "order_id",
+              "product_name",
+              "start_date",
+              "end_date",
+              "last_ordered",
+              "hitl_required"
+            ],
+            "parameter_descriptions": {
+              "order_id": "(Optional) Unique identifier of the order to cancel. If not provided, product_name and date range will be used to identify.",
+              "product_name": "(Optional) Name of the product in the order to be cancelled.",
+              "start_date": "(Optional) Start date for filtering orders (YYYY-MM-DD).",
+              "end_date": "(Optional) End date for filtering orders (YYYY-MM-DD).",
+              "last_ordered": "(Optional) Boolean flag. If true, targets the most recently ordered item matching other criteria. Defaults to false.",
+              "hitl_required": "(Internal) Flag indicating if Human-In-The-Loop is required for disambiguation or confirmation. Set by the system, not directly by user query."
+            },
+            "relevance_score": 0.2126
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,10 +1,10 @@
 [
   {
+    "user_detail_id": "UD001",
     "user_id": "USR001",
-    "user_email": "test@gmail.com",
-    "password": "test@123",
-    "jwt_token": "",
-    "expiration_time": "",
+    "address": "New York",
+    "phone_no": "9876543210",
+    "pincode": "90001",
     "created_at": "2026-01-01",
     "updated_at": "2026-01-01",
     "is_active": true
