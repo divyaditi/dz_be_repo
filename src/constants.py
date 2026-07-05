@@ -1,0 +1,3 @@
+# Product listing defaults
+PRODUCT_DEFAULT_LIMIT = 10
+PRODUCT_PAGE_SIZE = 10

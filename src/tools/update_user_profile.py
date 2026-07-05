@@ -1,4 +1,4 @@
-from strands import tool
+from langchain_core.tools import tool
 from repositories.userdb import users_db
 
 

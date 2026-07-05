@@ -1,50 +1,162 @@
 [
   {
-    "product_code": "GAD001",
-    "name": "Wireless Mouse",
-    "price": 499.0,
-    "quantity": 50
+    "product_code": "ELC001",
+    "name": "Samsung Galaxy S24 Ultra",
+    "price": 124999.0,
+    "quantity": 20,
+    "category": "Smartphones & Tablets",
+    "created_at": "2026-06-01"
   },
   {
-    "product_code": "GAD002",
-    "name": "Mechanical Keyboard",
-    "price": 1299.0,
-    "quantity": 30
+    "product_code": "ELC002",
+    "name": "Apple iPhone 15 Pro",
+    "price": 134900.0,
+    "quantity": 15,
+    "category": "Smartphones & Tablets",
+    "created_at": "2026-06-03"
   },
   {
-    "product_code": "GAD003",
-    "name": "USB-C Hub",
-    "price": 799.0,
-    "quantity": 75
+    "product_code": "ELC003",
+    "name": "Apple MacBook Air M3",
+    "price": 114900.0,
+    "quantity": 10,
+    "category": "Computers & Laptops",
+    "created_at": "2026-05-20"
   },
   {
-    "product_code": "GAD004",
-    "name": "HD Webcam",
-    "price": 2199.0,
-    "quantity": 20
+    "product_code": "ELC004",
+    "name": "Dell XPS 15 Laptop",
+    "price": 145000.0,
+    "quantity": 8,
+    "category": "Computers & Laptops",
+    "created_at": "2026-05-25"
   },
   {
-    "product_code": "GAD005",
-    "name": "Noise Cancelling Headphones",
-    "price": 3499.0,
-    "quantity": 15
+    "product_code": "ELC005",
+    "name": "Sony WH-1000XM5 Headphones",
+    "price": 29990.0,
+    "quantity": 30,
+    "category": "Audio",
+    "created_at": "2026-04-10"
   },
   {
-    "product_code": "GAD006",
-    "name": "Portable SSD 1TB",
-    "price": 4999.0,
-    "quantity": 25
+    "product_code": "ELC006",
+    "name": "JBL Flip 6 Bluetooth Speaker",
+    "price": 9999.0,
+    "quantity": 50,
+    "category": "Audio",
+    "created_at": "2026-04-18"
   },
   {
-    "product_code": "GAD007",
-    "name": "Smart LED Desk Lamp",
-    "price": 899.0,
-    "quantity": 40
+    "product_code": "ELC007",
+    "name": "Sony ZV-E10 Mirrorless Camera",
+    "price": 59990.0,
+    "quantity": 12,
+    "category": "Cameras & Photography",
+    "created_at": "2026-03-15"
   },
   {
-    "product_code": "GAD008",
-    "name": "Bluetooth Speaker",
-    "price": 1799.0,
-    "quantity": 35
+    "product_code": "ELC008",
+    "name": "GoPro Hero 12 Black",
+    "price": 39990.0,
+    "quantity": 18,
+    "category": "Cameras & Photography",
+    "created_at": "2026-03-22"
+  },
+  {
+    "product_code": "ELC009",
+    "name": "Apple Watch Series 9",
+    "price": 41900.0,
+    "quantity": 25,
+    "category": "Wearables",
+    "created_at": "2026-05-05"
+  },
+  {
+    "product_code": "ELC010",
+    "name": "Samsung Galaxy Watch 6",
+    "price": 28999.0,
+    "quantity": 22,
+    "category": "Wearables",
+    "created_at": "2026-05-12"
+  },
+  {
+    "product_code": "ELC011",
+    "name": "LG OLED C3 55 inch TV",
+    "price": 139999.0,
+    "quantity": 5,
+    "category": "TV & Home Theatre",
+    "created_at": "2026-02-10"
+  },
+  {
+    "product_code": "ELC012",
+    "name": "Sony Bravia XR 65 inch TV",
+    "price": 189990.0,
+    "quantity": 4,
+    "category": "TV & Home Theatre",
+    "created_at": "2026-02-20"
+  },
+  {
+    "product_code": "ELC013",
+    "name": "PlayStation 5 Console",
+    "price": 54990.0,
+    "quantity": 10,
+    "category": "Gaming",
+    "created_at": "2026-01-15"
+  },
+  {
+    "product_code": "ELC014",
+    "name": "Xbox Series X",
+    "price": 52990.0,
+    "quantity": 8,
+    "category": "Gaming",
+    "created_at": "2026-01-20"
+  },
+  {
+    "product_code": "ELC015",
+    "name": "Logitech MX Master 3 Mouse",
+    "price": 8995.0,
+    "quantity": 60,
+    "category": "Accessories",
+    "created_at": "2026-06-10"
+  },
+  {
+    "product_code": "ELC016",
+    "name": "Keychron K2 Mechanical Keyboard",
+    "price": 7499.0,
+    "quantity": 45,
+    "category": "Accessories",
+    "created_at": "2026-06-12"
+  },
+  {
+    "product_code": "ELC017",
+    "name": "Samsung T7 Portable SSD 1TB",
+    "price": 8499.0,
+    "quantity": 35,
+    "category": "Storage",
+    "created_at": "2026-03-05"
+  },
+  {
+    "product_code": "ELC018",
+    "name": "SanDisk Extreme Pro 2TB SSD",
+    "price": 15999.0,
+    "quantity": 20,
+    "category": "Storage",
+    "created_at": "2026-03-10"
+  },
+  {
+    "product_code": "ELC019",
+    "name": "TP-Link Archer AX73 WiFi Router",
+    "price": 12999.0,
+    "quantity": 15,
+    "category": "Networking",
+    "created_at": "2026-04-25"
+  },
+  {
+    "product_code": "ELC020",
+    "name": "Anker USB-C 12-in-1 Hub",
+    "price": 5499.0,
+    "quantity": 40,
+    "category": "Accessories",
+    "created_at": "2026-06-15"
   }
 ]
