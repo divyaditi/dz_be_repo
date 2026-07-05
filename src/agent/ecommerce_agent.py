@@ -1,6 +1,7 @@
 import logging
-from strands import Agent
-from strands.models.litellm import LiteLLMModel
+from langchain_groq import ChatGroq
+from langgraph.prebuilt import create_react_agent
+from langchain_core.messages import SystemMessage
 from settings import settings
 from tools.get_products import get_products
 from tools.update_product import update_product
@@ -50,22 +51,19 @@ OTHER CAPABILITIES:
 Always be polite and concise. Format all product results clearly.
 """
 
-# Initialise the Groq model via LiteLLM
-# model_id uses the "groq/" prefix so LiteLLM routes to Groq's API
-model = LiteLLMModel(
-    client_args={
-        "api_key": settings.GROQ_API_KEY,
-    },
-    model_id=settings.GROQ_MODEL_ID,
-    params={
-        "max_tokens": 1024,
-        "temperature": 0.7,
-    },
+# Initialise Groq model via LangChain
+model = ChatGroq(
+    api_key=settings.GROQ_API_KEY,
+    model=settings.GROQ_MODEL_ID.replace("groq/", ""),
+    max_tokens=1024,
+    temperature=0.7,
 )
 
-# Instantiate the agent with both tools
-ecommerce_agent = Agent(
+tools = [get_products, update_product, update_user_profile, show_orders, cancel_order]
+
+# Create ReAct agent with LangGraph
+ecommerce_agent = create_react_agent(
     model=model,
-    system_prompt=SYSTEM_PROMPT,
-    tools=[get_products, update_product, update_user_profile, show_orders, cancel_order],
+    tools=tools,
+    prompt=SYSTEM_PROMPT,
 )
